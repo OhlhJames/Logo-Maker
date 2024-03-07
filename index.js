@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
-const shapes = require('./lib/shapes');
-const { writeFile } = require('fs/promises');
+const Triangle = require('./lib/shapes');
+const Square = require('./lib/shapes');
+const Circle = require('./lib/shapes');
+const fs = require('fs');
+let logo = ''
 inquirer
     .prompt([
         {
@@ -25,3 +28,27 @@ inquirer
             name: 'textFill'
         }
     ])
+    .then((res) => {
+        if(res.shape === 'triangle'){
+            let logo = new Triangle(
+                res.shapeFill, 
+                res.textFill, 
+                res.textChars,
+                )
+        } else if(res.shape = 'circle'){
+            let logo = new Circle(
+                res.shapeFill, 
+                res.textFill, 
+                res.textChars,
+                )
+        } else {
+            let logo = new Square(
+                res.shapeFill, 
+                res.textFill, 
+                res.textChars,
+                )
+        }
+        fs.appendFile('logo.svg', logo.render(), (err) => 
+            err ? console.error(err) : console.log('Logo created!')
+        )
+    })
