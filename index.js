@@ -1,9 +1,6 @@
 const inquirer = require('inquirer');
-const Triangle = require('./lib/shapes');
-const Square = require('./lib/shapes');
-const Circle = require('./lib/shapes');
+const {Triangle, Square, Circle} = require('./lib/shapes');
 const fs = require('fs');
-let logo = ''
 inquirer
     .prompt([
         {
@@ -30,25 +27,32 @@ inquirer
     ])
     .then((res) => {
         if(res.shape === 'triangle'){
-            let logo = new Triangle(
+            const logo = new Triangle(
                 res.shapeFill, 
                 res.textFill, 
                 res.textChars,
                 )
+            fs.appendFile('logo.svg', logo.render(), (err) => 
+                err ? console.error(err) : console.log('Logo created!')
+            )
         } else if(res.shape = 'circle'){
-            let logo = new Circle(
+            const logo = new Circle(
                 res.shapeFill, 
                 res.textFill, 
                 res.textChars,
                 )
+            fs.appendFile('logo.svg', logo.render(), (err) => 
+                err ? console.error(err) : console.log('Logo created!')
+            )
         } else {
-            let logo = new Square(
+            const logo = new Square(
                 res.shapeFill, 
                 res.textFill, 
                 res.textChars,
                 )
+            fs.appendFile('logo.svg', logo.render(), (err) => 
+                err ? console.error(err) : console.log('Logo created!')
+            )
         }
-        fs.appendFile('logo.svg', logo.render(), (err) => 
-            err ? console.error(err) : console.log('Logo created!')
-        )
+        
     })
