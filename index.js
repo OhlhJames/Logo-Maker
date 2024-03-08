@@ -35,8 +35,8 @@ inquirer
             fs.appendFile('logo.svg', logo.render(), (err) => 
                 err ? console.error(err) : console.log('Logo created!')
             )
-        } else if(res.shape = 'circle'){
-            const logo = new Circle(
+        } else if(res.shape = 'square'){
+            const logo = new Square(
                 res.shapeFill, 
                 res.textFill, 
                 res.textChars,
@@ -44,8 +44,8 @@ inquirer
             fs.appendFile('logo.svg', logo.render(), (err) => 
                 err ? console.error(err) : console.log('Logo created!')
             )
-        } else {
-            const logo = new Square(
+        } else if (res.shape = 'circle'){
+            const logo = new Circle(
                 res.shapeFill, 
                 res.textFill, 
                 res.textChars,
