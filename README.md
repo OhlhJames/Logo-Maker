@@ -25,3 +25,5 @@ MIT licencse
 To test this application users can open it in the terminal and run npm test, this will run the test suite for the application to ensure everything is working correctly.
 
 ## Walkthrough video 
+
+https://drive.google.com/file/d/1JfLmx5uw7D1cXn2Aduap99caUyP7E7Mh/view?usp=drive_link
